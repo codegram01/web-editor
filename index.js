@@ -1,8 +1,6 @@
 import { Editor } from "./src/editor.js"
 import { btnRun, btnShare, editorElm } from "./src/dom-index.js"
 
-
-
 const aceEditor = new Editor(editorElm)
 
 const init = () => {
@@ -22,7 +20,6 @@ const saveUrl = () => {
     window.location = `/?code=${codeEn}`
 }
 
-// it need get code first
 btnRun.addEventListener("click", function(){
     const code = aceEditor.getValue();
     const codeEn = encodeURI(code)
