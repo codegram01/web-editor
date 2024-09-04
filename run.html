@@ -4,22 +4,22 @@
     <title>Web Editor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.2/ace.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <div id="app">
         <div id="navbar">
             <div class="logo">Web Editor</div>
             <div class="action-ctn">
-                <button id="btn-run">Run</button>
+                <button id="btn-source">View Source</button>
                 <button id="btn-share">Share</button>
             </div>
         </div>
         <div id="editor-ctn">
-            <div id="editor"></div>
+            <iframe id="iframe" frameborder="0"></iframe>
+            <!-- <div id="editor"></div> -->
         </div>
     </div>
 
-    <script src="index.js" type="module"></script>
+    <script src="run.js" type="module"></script>
 </body>
 </html>
