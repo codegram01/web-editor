@@ -1,18 +1,11 @@
 import { iframe, btnSource, btnShare } from "./src/dom-run.js";
+import { copyUrl, getCodeFromUrl } from "./src/url.js";
 
-const urlParams = new URLSearchParams(window.location.search);
-const codeEn = urlParams.get('code');
-const code = decodeURI(codeEn)
-
-iframe.srcdoc = code;
+const codeQuery = getCodeFromUrl()
+iframe.srcdoc = codeQuery;
 
 btnSource.addEventListener("click", function(){
-    window.location = `/index.html?code=${encodeURI(codeEn)}`
+    window.location = `/#${encodeURI(codeQuery)}`
 })
 
-btnShare.addEventListener("click", function(){
-    const url = window.location.href;
-    navigator.clipboard.writeText(url);
-
-    alert("Link share copied")
-})
+btnShare.addEventListener("click", copyUrl)

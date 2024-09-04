@@ -1,39 +1,12 @@
 import { Editor } from "./src/editor.js"
 import { btnRun, btnShare, editorElm } from "./src/dom-index.js"
+import { copyUrl, getCodeFromUrl } from "./src/url.js"
 
-const aceEditor = new Editor(editorElm)
-
-const init = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const codeEn = urlParams.get('code');
-    
-    if(codeEn){
-        const code = decodeURI(codeEn)
-        aceEditor.setValue(code)
-    }
-}
-
-const saveUrl = () => {
-    const code = aceEditor.getValue();
-    const codeEn = encodeURI(code)
-
-    window.location = `/?code=${codeEn}`
-}
+const editor = new Editor(editorElm)
+editor.aceEditor.setValue(getCodeFromUrl())
 
 btnRun.addEventListener("click", function(){
-    const code = aceEditor.getValue();
-    const codeEn = encodeURI(code)
-
-    window.location = `/run.html?code=${codeEn}`
+    window.location.href = `/run.html#${editor.getValueEncodeURI()}`
 })
 
-btnShare.addEventListener("click", function(){
-    saveUrl()
-
-    const url = window.location.href;
-    navigator.clipboard.writeText(url);
-
-    alert("Link share copied")
-})
-
-init()
+btnShare.addEventListener("click", copyUrl)
