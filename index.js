@@ -1,13 +1,19 @@
 import { Editor } from "./src/editor.js"
 import { btnRun, btnShare, editorElm } from "./src/dom-index.js"
 
-const urlParams = new URLSearchParams(window.location.search);
-const codeEn = urlParams.get('code');
-const code = decodeURI(codeEn)
+
 
 const aceEditor = new Editor(editorElm)
-aceEditor.setValue(code)
 
+const init = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const codeEn = urlParams.get('code');
+    
+    if(codeEn){
+        const code = decodeURI(codeEn)
+        aceEditor.setValue(code)
+    }
+}
 
 const saveUrl = () => {
     const code = aceEditor.getValue();
@@ -32,3 +38,5 @@ btnShare.addEventListener("click", function(){
 
     alert("Link share copied")
 })
+
+init()
