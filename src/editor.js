@@ -21,7 +21,9 @@ export class Editor {
 
     getValueEncodeURI(){
         const code = this.aceEditor.getValue();
-        const codeEn = encodeURI(code)
+
+        // const codeEn = encodeURI(code)
+        const codeEn = LZString.compressToEncodedURIComponent(code)
 
         return codeEn
     }
