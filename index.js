@@ -6,7 +6,7 @@ import { exampleCode } from "./src/example.js"
 const editor = new Editor(editorElm)
 
 btnRun.addEventListener("click", function(){
-    window.location.href = `/run.html#${editor.getValueEncodeURI()}`
+    window.location.href = `/run#${editor.getValueEncodeURI()}`
 })
 
 btnShare.addEventListener("click", copyUrl)
