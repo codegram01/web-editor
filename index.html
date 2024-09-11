@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Web Editor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Web Editor</title>
+	<meta name="og:title" content="Web Editor">
+	<meta name="og:url" content="https://web-editor.wingram.org/">
+	
+	<meta name="description" content="Code and run frontend code in browser" />
+	<meta name="og:description" content="Code and run frontend code in browser">
+
+	<meta name="og:image" content="https://base.wingram.org/images/logo.png">
+    <link rel="icon" href="https://base.wingram.org/favicon.ico" type="image/x-icon"/>
+	<link rel="apple-touch-icon" href="https://base.wingram.org/images/logo.png">
+	<link rel="icon" href="https://base.wingram.org/images/logo.png" type="image/png">
+	<link rel="shortcut" href="https://base.wingram.org/images/logo.png" />
+	<link rel="apple-touch-icon" href="https://base.wingram.org/images/logo.png"/>
+	
+    <link rel="stylesheet" href="https://base.wingram.org/css/base.css" />
+	<link rel="stylesheet" href="style.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.36.2/ace.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js" integrity="sha512-qtX0GLM3qX8rxJN1gyDfcnMFFrKvixfoEOwbBib9VafR5vbChV5LeE5wSI/x+IlCkTY5ZFddFDCCfaVJJNnuKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <div id="app">
-        <div id="navbar">
-            <a href="/" class="logo">Web Editor</a>
-            <div class="action-ctn">
+    <div id="root">
+        <header id="header">
+			<a href="https://wingram.org">Wingram</a> - <a href="https://wingram.org/#software">Software</a> -
+			<a href="https://www.youtube.com/@WingramOrg">Channel</a> - 
+            <a class="about" href="https://www.youtube.com/watch?v=VktWY4DWhrM&list=PLTKnPLJn0ggeXo-OXeNLkRAEJGj0NCBt2">Created</a>
+		</header>
+        <nav>
+            <a href="/" class="logo">
+              <img src="https://base.wingram.org/images/logo.png" alt="Logo" />
+              <span>Web Editor</span>
+            </a>
+            <div class="action">
                 <button id="btn-run">Run</button>
                 <button id="btn-share">Share</button>
-                <a class="about" href="https://www.youtube.com/watch?v=VktWY4DWhrM&list=PLTKnPLJn0ggeXo-OXeNLkRAEJGj0NCBt2">About</a>
             </div>
-        </div>
-        <div id="editor-ctn">
-            <div id="editor"></div>
-        </div>
+        </nav>
+        <main class="app">
+            <div class="app-ctn">
+                <div id="editor"></div>
+            </div>
+        </main>
     </div>
 
     <script src="index.js" type="module"></script>
